@@ -6,9 +6,15 @@ import javax.validation.constraints.Size;
 
 @Entity
 public class Employer extends AbstractEntity {
-    @NotBlank
-    @Size(max=100, message="Name can be no longer than 100 characters")
+
+    @NotBlank(message = "Location is required")
+    @Size(max=100, message="Location can be no longer than 100 characters")
     private String location;
+
+    public Employer(String l) {
+        this.location = l;
+    }
+    public Employer() {}
 
     public String getLocation() {
         return location;
@@ -18,5 +24,5 @@ public class Employer extends AbstractEntity {
         this.location = location;
     }
 
-    public Employer() {}
+
 }

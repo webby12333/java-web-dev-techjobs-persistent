@@ -1,8 +1,7 @@
 package org.launchcode.javawebdevtechjobspersistent.models;
 
-import org.springframework.data.annotation.Id;
-
 import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;

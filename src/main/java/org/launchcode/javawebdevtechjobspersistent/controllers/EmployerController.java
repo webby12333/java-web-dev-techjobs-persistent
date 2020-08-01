@@ -33,7 +33,7 @@ public class EmployerController {
             return "employers/add";
         }
         employerRepository.save(newEmployer);
-        Integer employerId = newEmployer.getId();
+        int employerId = newEmployer.getId();
 
         return "redirect:/employers/view/" + employerId;
     }

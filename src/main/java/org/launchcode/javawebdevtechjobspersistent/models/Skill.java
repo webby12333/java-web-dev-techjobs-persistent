@@ -6,6 +6,7 @@ import javax.validation.constraints.Size;
 
 @Entity
 public class Skill extends AbstractEntity {
+
     @NotBlank
     @Size(max=1000, message="Description can be no longer than 1000 characters")
     private String description;

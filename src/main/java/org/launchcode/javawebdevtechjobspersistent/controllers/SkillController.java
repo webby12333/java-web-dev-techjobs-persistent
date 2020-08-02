@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.EnumMap;
+import java.util.List;
 import java.util.Optional;
 
 @Controller
@@ -34,9 +35,9 @@ public class SkillController {
             return "skills/add";
         }
         skillRepository.save(newSkill);
+        int skillId = newSkill.getId();
 
-        Integer skillId = newSkill.getId();
-        return "redirect:/skills/view" + skillId;
+        return "redirect:/skills/view/" + skillId;
     }
 
     @GetMapping("view/{skillId}")
@@ -44,7 +45,7 @@ public class SkillController {
 
         Optional<Skill> optSkill = skillRepository.findById(skillId);
         if (optSkill.isPresent()) {
-            Skill skill = (Skill) optSkill.get();
+            List<Skill> skill = (List<Skill>) optSkill.get();
             model.addAttribute("skill", skill);
             return "skills/view";
         } else {

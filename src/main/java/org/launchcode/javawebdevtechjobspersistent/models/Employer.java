@@ -16,15 +16,14 @@ public class Employer extends AbstractEntity {
     @Size(max=100, message="Location can be no longer than 100 characters")
     private String location;
 
-    @OneToMany
-    @JoinColumn
-    private final List<Job> jobs = new ArrayList<>();
-
     public Employer(String l) {
         this.location = l;
     }
     public Employer() {}
 
+    @OneToMany
+    @JoinColumn
+    private final List<Job> jobs = new ArrayList<>();
     public String getLocation() {
         return location;
     }
